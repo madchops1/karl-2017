@@ -1,0 +1,234 @@
+
+// Sublime vars
+$sublime-bg: #272822;
+$sublime-orange: #D68920;
+$sublime-pink: #F1266F;
+$sublime-blue: #54BDCA;
+$sublime-purple: #4F4A98;
+$sublime-khaki: #D9BF58;
+$sublime-white: #CAECE6;
+$sublime-green: #8BC42A;
+
+//
+
+
+html, 
+body {
+    height: 100%;
+}
+
+// font-family: 'Press Start 2P', cursive;
+// font-family: 'Source Code Pro', monospace;
+body {
+    background-color: $sublime-bg;
+    font-family: monospace;
+    //font-family: arial;
+    background-image: url(/images/karlboat.jpg);
+    background-size: cover;
+    //background-position: calc(100% - 200px) calc(100% + 10px); 
+    background-position: -500px -100px;
+    display: flex;
+    align-items: center;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    &.title {
+        //font-family: 'Press Start 2P', cursive;
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+
+@keyframes "blink" {
+  from, to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #8BC42A;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #8BC42A;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #8BC42A;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #8BC42A;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #8BC42A;
+  }
+}
+
+input#setter { /* explorer doesn't support [att=val] selector :( */
+  left: -1000px;
+  position: absolute;
+}
+
+.cursor {
+  font-size: 12px;
+  position: relative;
+  left: 0px;
+}
+
+#container {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  //background-color: brown;
+  //opacity: 0.5;
+  left: -95px;
+  top: -95px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blink {
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+#terminal-wrapper {
+  height: 400px;
+  width: 600px;
+  overflow: hidden;
+  padding: 0px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0px 10px 40px -12px #000;
+  //opacity: 0.99;
+
+  #inner {
+    padding: 8px;
+    width: 100%;
+  }
+
+  /**
+   * CLASSIC THEME
+   */
+  &.classic-theme {
+    background-color: #000;
+    color: #39FF14;
+    
+    .cursor {
+      background-color: #39FF14;
+      color: #39FF14;
+
+    }
+
+    a {
+      color: blue;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+
+  /**
+   * WHITE THEME
+   */
+  &.white-theme {
+    background-color: #fff;
+    color: #000;
+  }
+
+  /**
+   * SUBLIME THEME
+   */
+  &.sublime-theme {
+    //background-color: $sublime-bg;
+    background-color: rgba(39,40,34,0.98);
+    color: $sublime-green;
+
+    .cursor {
+      background-color: $sublime-green;
+      color: $sublime-green;
+
+    }
+
+    pre, span {
+      &.pink { color: $sublime-pink; }
+      &.orange { color: $sublime-orange; }
+      &.purple { color: $sublime-purple; }
+      &.white { color: $sublime-white; }
+    }
+
+    a {
+      color: $sublime-blue;
+      text-decoration: underline;
+
+      &:hover {
+        color: $sublime-blue;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      //&:visited: {
+      //  color: $sublime-purple;
+      //}
+    }
+  }
+}
+
+#terminal {
+  margin: 0px;
+  cursor: text;
+}
+
+#writer {
+    //font-family: cursor, courier;
+    //font-weight: bold;
+}
+            
+#getter {
+    margin: 0px 0px 80px 0px;
+}
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    li {
+        list-style: none;
+
+        span {
+
+            pre {
+                margin: 0px !important;
+                padding: 0px !important;
+                display: inline;
+            }
+        }
+    }
+}
