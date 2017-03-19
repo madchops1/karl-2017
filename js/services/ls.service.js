@@ -1,6 +1,11 @@
 function ls ($sce, input, pwd) {
 
   this.directoryStructure = [
+    /*{
+      name: "a.md",
+      executible: true,
+      path: "/files/tatanka.readme.md"
+    },*/
     {
       name: "Projects",
       directory: true,
@@ -23,7 +28,7 @@ function ls ($sce, input, pwd) {
             },
             {
               name: "1st Place RedEye BigIdea Awards 2015",
-              executible: true,
+              executible: false,
               url: "http://www.chicagotribune.com/redeye/redeye-big-idea-awards-winner-kickstarter-20150309-story.html"
             },
             {
@@ -59,7 +64,7 @@ function ls ($sce, input, pwd) {
     {
       name: "resume",
       directory: false,
-      executible: true,
+      executible: false,
       url: "https://docs.google.com/document/d/1cz2569FN5G4RYnMY7FaOhcpqbF1E6jhAsrGLL0KPplA/edit?usp=sharing"
     },
     {

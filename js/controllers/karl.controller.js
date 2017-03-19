@@ -1,13 +1,13 @@
 
 
-    function karlController ($scope, $http, focus, $sce, terminal, pwd) {
+  function karlController ($scope, $http, focus, $sce, terminal, pwd, output) {
    
     var vm = this;
     vm.hideCarrot = true;
     vm.originalText = '';
     vm.cloneText = '';
     vm.cursorStyle = { left: 0 };
-    vm.output = [
+    output.output = [
       {plain: true, text: $sce.trustAsHtml("<pre>   _  __          _    _____ _       _ _                         _     _ </pre>")},
       {plain: true, text: $sce.trustAsHtml("<pre>  | |/ /         | |  / ____| |     | | |                       | |   | |</pre>")},
       {plain: true, text: $sce.trustAsHtml("<pre>  | ' / __ _ _ __| | | (___ | |_ ___| | |_ ___ _ __  _ __   ___ | |__ | |</pre>")},
@@ -26,6 +26,20 @@
     ];
     vm.location = '';
     vm.pwdString = '';
+
+    // watch output
+    (function () {
+        $scope.$watch(function () {
+            return output.output;
+        }, function (newVal, oldVal) {
+          console.log('a',newVal,oldVal);
+            //if ( newVal !== oldVal ) {
+            //  console.log('')
+                vm.output = newVal;
+            //    console.log('watch!');
+            //}
+        });
+    }());
 
     vm.focusText = function () {
       focus('setter');
@@ -81,21 +95,23 @@
       updateScroll();
       var keycode = e.keyCode || e.which; /* keycode fix */
       if(keycode == 13 && vm.originalText != '') {
-        vm.output.push({ pwdString: pwd.current.join("/"), text: $sce.trustAsHtml(vm.originalText)});
+        output.output.push({ pwdString: pwd.current.join("/"), text: $sce.trustAsHtml(vm.originalText)});
         var response = terminal.handle(vm.originalText);
         console.log('terminal response', response);
         
         // clear function happens here
         if(response === 'clear') {
-          vm.output = [];
+          output.output = [];
         }
         else if(response.length) {
-          vm.output = vm.output.concat(response);
+          output.output = output.output.concat(response);
+        } else {
+          output.output = output.output;
         }
 
         vm.originalText = '';
         vm.pwdString = pwd.current.join("/");
-        console.log(vm.output);
+        console.log(output.output);
       }
     }
 

@@ -54,7 +54,9 @@
           break;
 
         case "cat":
-          return cat.cat();
+          //return cat.cat();
+          cat.cat();
+          return true;
           break;
 
         default: 
@@ -68,14 +70,15 @@
 
       var help = [
         {plain: true, text: $sce.trustAsHtml('<pre> </pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre>  These are some of the commands available to you:</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  These are some of the commands available to you:</pre>')},
         {plain: true, text: $sce.trustAsHtml('<pre> </pre>')},
         //{plain: true, text: $sce.trustAsHtml('<pre>  about</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre>  cd [target]        Change to target directory.</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre>  clear              Clear the terminal.</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre>  help               Help for you ;)</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre>  ls                 List current directory contents.</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre>  pwd                Print current location.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  cat [target]       Print text file contents to screen.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  cd [target]        Change to target directory.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  clear              Clear the terminal.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  help               Help for you ;)</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  ls                 List current directory contents.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  pwd                Print current location.</pre>')},
         {plain: true, text: $sce.trustAsHtml('<pre> </pre>')}
       ];
 
