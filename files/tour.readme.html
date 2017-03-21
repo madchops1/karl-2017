@@ -1,0 +1,1 @@
+jqueryTour v1.0 - An extremely slick site tour plugin I built initially for Music Dealers @ <a href='http://musicdealers.com' target='_blank'>musicdealers.com</a> but feel free to use it, let me know if you do.

@@ -1,0 +1,1 @@
+BotMap crawls a site as if it was a real person browsing a site, not like a server side CURL or standard xHttp request. This crawler will execute your javascript. So its perfect for generating sitemaps for sites built with angular, react, or any other popular javascript framework where content may be included via javascript.
