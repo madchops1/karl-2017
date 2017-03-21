@@ -9,35 +9,13 @@ function ls ($sce, input, pwd) {
     { name: "Projects",
       directory: true,
       children: [
-        { name: "RobotAndPuppy",
+        {
+          name: "KarlSteltenpohl.com",
           directory: true,
           children: [
-            {
-              name: "RobotAndPuppy.com",
-              url: "http://robotandpuppy.com",
-            },
-            {
-              name: "Instagram",
-              url: "http://instagram.com/robotandpuppy/",
-            },
-            {
-              name: "readme.md",
-              path: "/files/rpcom.readme.md",
-            },
-            { 
-              name: "RobotAndPuppyThreejsLab", 
-              url: "http://codepen.io/madchops/pen/GWrvWN" 
+            { name: "Github",
+              url: "https://github.com/madchops1/karl-2017"
             }
-            /*{
-              name: "originals",
-              directory: true,
-              children: [
-                {
-                  name: "test.md",
-                  path: "/files/tatanka.readme.md"
-                }
-              ]
-            }*/
           ]
         },
         { name: "GoReturnMe",
@@ -79,21 +57,52 @@ function ls ($sce, input, pwd) {
             { name: "Twitter",
               url: "https://twitter.com/goreturnme"
             },
-            { name: "readme.md",
-              path: "/files/goreturnme.readme.md"
+            { name: "readme.html",
+              path: "/files/goreturnme.readme.html"
             }
           ]
         }, 
+        { name: "RobotAndPuppy",
+          directory: true,
+          children: [
+            {
+              name: "RobotAndPuppy.com",
+              url: "http://robotandpuppy.com",
+            },
+            {
+              name: "Instagram",
+              url: "http://instagram.com/robotandpuppy/",
+            },
+            {
+              name: "readme",
+              path: "/files/rpcom.readme.html",
+            },
+            { 
+              name: "RobotAndPuppyThreejsLab", 
+              url: "http://codepen.io/madchops/pen/GWrvWN" 
+            }
+            /*{
+              name: "originals",
+              directory: true,
+              children: [
+                {
+                  name: "test.md",
+                  path: "/files/tatanka.readme.md"
+                }
+              ]
+            }*/
+          ]
+        },
         { name: "Tatanka",
           directory: true,
           children: [
             { name: "Documentation", url: "https://tatanka.readme.io/v1.0" },
             { name: "Github", url: "https://github.com/madchops1/tatanka" },
-            { name: "readme.md", path: "/files/tatanka.readme.md" }
+            { name: "readme", path: "/files/tatanka.readme.html" }
           ]
         },
-        { name: "allsites.readme.md",
-          path: "/files/allsites.md"
+        { name: "allsites.readme.html",
+          path: "/files/allsites.html"
         }
       ]
     },      
@@ -108,8 +117,8 @@ function ls ($sce, input, pwd) {
               url: "http://botmap.io"
             },
             {
-              name: "readme.md",
-              path: "/files/botmap.readme.md"
+              name: "readme",
+              path: "/files/botmap.readme.html"
             }
           ]
         },
@@ -121,8 +130,8 @@ function ls ($sce, input, pwd) {
               url: "https://www.facebook.com/addisontickets/" 
             },
             {
-              name: "readme.md",
-              path: "/files/at.readme.md"
+              name: "readme",
+              path: "/files/at.readme.html"
             }
           ]
         },
@@ -150,8 +159,8 @@ function ls ($sce, input, pwd) {
             { name: "Github",
               url: "https://github.com/madchops1/jquerytour"
             },
-            { name: "readme.md", 
-              path: "/files/tour.readme.md"
+            { name: "readme", 
+              path: "/files/tour.readme.html"
             }
           ]
         }
@@ -169,8 +178,8 @@ function ls ($sce, input, pwd) {
           url: "https://www.meetup.com/Chicago-Foosball/",
         },
         {
-          name: "readme.md",
-          path: "/files/meetup.readme.md"
+          name: "readme",
+          path: "/files/meetup.readme.html"
         }
       ]
     },
@@ -188,7 +197,7 @@ function ls ($sce, input, pwd) {
           directory: true,
           children: [
             { name: "SunriseRider", url: "http://sunriserider.tumblr.com/" },
-            { name: "sunriserider.readme.md" }
+            //{ name: "sunrise.readme" }
           ]
         },
         { name: "Videos",
@@ -201,11 +210,14 @@ function ls ($sce, input, pwd) {
         }
       ]
     },
-    { name: "changelog.md",
-      path: "/files/changelog.md"
+    { name: "changelog",
+      path: "/files/changelog.html"
     },
-    { name: "readme.md",
-      path: "/files/about.readme.md"
+    { name: "contact",
+      path: "/files/contact.html"
+    },
+    { name: "readme",
+      path: "/files/about.readme.html"
     }
   ];
 
