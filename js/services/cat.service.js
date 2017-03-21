@@ -1,59 +1,78 @@
+/*
+ * Cat function
+ * ls, and cd may have some bugs at this time. However this "cat" service is perfect!
+ * works recursively down the tree and recursively up the tree
+ */
 function cat ($sce, $http, input, output, pwd, ls) {
   
-  m = this;
   this.target = "";
   this.current = [];
 
   this.cat = function () {
     this.target = input.input[1];
-    this.targetArray =this.target.split("/");
+    this.targetArray = this.target.split("/");
     this.current = pwd.current;
+    this.combinedTarget = this.current.concat(this.targetArray);
+
+    this.reverseLoop();
+    
     this.loop(ls.directoryStructure,0);
     return true;
   };
 
-  this.loop = function (obj, pathKey) {
+  this.reverseLoop = function () {
+    var count = 0;
+    for(var i=0; i<this.combinedTarget.length; i++ ) {
+      if(this.combinedTarget[i] == '..') {
+        this.combinedTarget.splice(i-1,1);
+        this.combinedTarget.splice(i-1,1);
+        i=i-1;
+        i=i-1;
+      }
+    }
+  };
 
-    for(var j=0; j<obj.length; j++) {
-      console.log('cat loop', pathKey, obj[j]);
-      
-      // more roots, but only matched roots
-      if(angular.isDefined(obj[j].children) && obj[j].children.length && this.current[pathKey] == obj[j].name ) {
+
+  function updateScroll() {
+    var element = document.getElementById("terminal-wrapper");
+    element.scrollTop = element.scrollHeight;
+  }
+
+  this.loop = function (obj, pathKey) {
+    for(var j=0; j<obj.length; j++) {      
+      if(angular.isDefined(obj[j].children) && obj[j].children.length && this.combinedTarget[pathKey] == obj[j].name) {
         this.loop(obj[j].children,pathKey+1);
         break;
       } 
       // end of roots
       else {
         // check for a match
-        if(obj[j].name == this.target) {
-          console.log('cat match', obj[j]);
-
-          if(obj[j].executible === true) {
-
-            console.log('match is executible');
-
+        var s = this.combinedTarget.length-1;
+        if(pathKey == s && (obj[j].name == this.target || obj[j].name == this.targetArray[this.targetArray.length-1])) {
+          if(angular.isDefined(obj[j].path)) {
             $http({
               method: 'GET',
               url: obj[j].path
             }).then(function successCallback(response) {
-
-                output.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='white'>" + response.data + "</span>") });
-
-              }, function errorCallback(response) {
-
-                //console.log('error');
+                output.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='white'>&nbsp;</span>") });
+                output.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='white'>" + nl2br(response.data) + "</span>") });
+                output.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='white'>&nbsp;</span>") });
               });
           } 
-          // not executible
+          // no path
           else {
-
-            output.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='pink'>Not an executible file.</span>") });
-
+            output.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='pink'>Not a file.</span>") });
           }
           break;
         }
       }
     }    
   };
+
+  function nl2br(txt){ 
+    if(angular.isDefined(txt)) {
+      return txt.replace(/\n/g, "<br />");
+    }
+  }
 
 }

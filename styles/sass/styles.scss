@@ -9,31 +9,23 @@ $sublime-khaki: #D9BF58;
 $sublime-white: #CAECE6;
 $sublime-green: #8BC42A;
 
-//
-
-
 html, 
 body {
     height: 100%;
 }
 
-// font-family: 'Press Start 2P', cursive;
-// font-family: 'Source Code Pro', monospace;
 body {
-    background-color: $sublime-bg;
-    font-family: monospace;
-    //font-family: arial;
-    background-image: url(/images/karlboat.jpg);
-    background-size: cover;
-    //background-position: calc(100% - 200px) calc(100% + 10px); 
-    background-position: -500px -100px;
-    display: flex;
-    align-items: center;
+  background-color: $sublime-bg;
+  font-family: monospace;
+  background-image: url(http://karlcdn.s3.amazonaws.com/karlboat.jpg);
+  background-size: cover;
+  background-position: -500px -100px;
+  display: flex;
+  align-items: center;
 }
 
 h1,h2,h3,h4,h5,h6 {
     &.title {
-        //font-family: 'Press Start 2P', cursive;
         font-size: 12px;
         font-weight: bold;
     }
@@ -84,7 +76,7 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
-input#setter { /* explorer doesn't support [att=val] selector :( */
+input#setter, input#faketab { /* explorer doesn't support [att=val] selector :( */
   left: -1000px;
   position: absolute;
 }
@@ -99,12 +91,11 @@ input#setter { /* explorer doesn't support [att=val] selector :( */
   position: absolute;
   width: 200px;
   height: 200px;
-  //background-color: brown;
-  //opacity: 0.5;
   left: -95px;
   top: -95px;
   overflow: hidden;
   pointer-events: none;
+  margin-bottom:-91px;
 }
 
 .blink {
@@ -125,11 +116,9 @@ input#setter { /* explorer doesn't support [att=val] selector :( */
   margin: auto;
   border-radius: 12px;
   box-shadow: 0px 10px 40px -12px #000;
-  //opacity: 0.99;
 
   #inner {
-    padding: 8px;
-    width: 100%;
+    padding: 8px 8px 3px 8px;
   }
 
   /**
@@ -166,14 +155,12 @@ input#setter { /* explorer doesn't support [att=val] selector :( */
    * SUBLIME THEME
    */
   &.sublime-theme {
-    //background-color: $sublime-bg;
     background-color: rgba(39,40,34,0.98);
     color: $sublime-green;
 
     .cursor {
       background-color: $sublime-green;
       color: $sublime-green;
-
     }
 
     pre, span {
@@ -181,6 +168,7 @@ input#setter { /* explorer doesn't support [att=val] selector :( */
       &.orange { color: $sublime-orange; }
       &.purple { color: $sublime-purple; }
       &.white { color: $sublime-white; }
+      &.khaki { color: $sublime-khaki; }
     }
 
     a {
@@ -192,10 +180,6 @@ input#setter { /* explorer doesn't support [att=val] selector :( */
         text-decoration: none;
         cursor: pointer;
       }
-
-      //&:visited: {
-      //  color: $sublime-purple;
-      //}
     }
   }
 }
@@ -203,15 +187,6 @@ input#setter { /* explorer doesn't support [att=val] selector :( */
 #terminal {
   margin: 0px;
   cursor: text;
-}
-
-#writer {
-    //font-family: cursor, courier;
-    //font-weight: bold;
-}
-            
-#getter {
-    margin: 0px 0px 80px 0px;
 }
 
 ul {

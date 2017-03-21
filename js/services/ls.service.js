@@ -2,144 +2,291 @@ function ls ($sce, input, pwd) {
 
   this.directoryStructure = [
     /*{
-      name: "a.md",
+      name: "test.md",
       executible: true,
       path: "/files/tatanka.readme.md"
     },*/
-    {
-      name: "Projects",
+    { name: "Projects",
       directory: true,
       children: [
-        { 
-          name: "RobotAndPuppy.com",
-          executible: true,
-          url: "http://robotandpuppy.com"
-        },
-        { 
-          name: "GoReturnMe.com",
-          executible: false,
+        { name: "RobotAndPuppy",
           directory: true,
           children: [
-            { 
-              name: "GoReturnMe.com",
-              executible: true,
-              directory: false,
-              url: "http://goreturnme.com"
+            {
+              name: "RobotAndPuppy.com",
+              url: "http://robotandpuppy.com",
             },
             {
-              name: "1st Place RedEye BigIdea Awards 2015",
-              executible: false,
-              url: "http://www.chicagotribune.com/redeye/redeye-big-idea-awards-winner-kickstarter-20150309-story.html"
+              name: "Instagram",
+              url: "http://instagram.com/robotandpuppy/",
             },
             {
               name: "readme.md",
-              executible: true,
-              directory: false
+              path: "/files/rpcom.readme.md",
+            },
+            { 
+              name: "RobotAndPuppyThreejsLab", 
+              url: "http://codepen.io/madchops/pen/GWrvWN" 
             }
+            /*{
+              name: "originals",
+              directory: true,
+              children: [
+                {
+                  name: "test.md",
+                  path: "/files/tatanka.readme.md"
+                }
+              ]
+            }*/
           ]
-          
-        }, 
-        {
-          name: "Tatanka",
-          executible: false,
+        },
+        { name: "GoReturnMe",
           directory: true,
           children: [
-            { name: "Documentation", executible: true, url: "https://tatanka.readme.io/v1.0" },
-            { name: "Github", executible: true, url: "https://github.com/madchops1/tatanka" },
-            { name: "readme.md", path: "/files/tatanka.readme.md", executible: true }
+            { name: "GoReturnMe.com",
+              directory: false,
+              url: "http://goreturnme.com"
+            },
+            { name: "articles",
+              directory: true,
+              children: [
+                { name: "1st Place RedEye BigIdea Awards 2015",
+                  url: "http://www.chicagotribune.com/redeye/redeye-big-idea-awards-winner-kickstarter-20150309-story.html"
+                },
+                { name: "RedEye",
+                  url: "http://www.chicagotribune.com/redeye/redeye-big-idea-event-20141116-023-photo.html"
+                },
+                { name: "Crain's Chicago Business",
+                  url: "http://www.chicagobusiness.com/article/20140902/NEWS07/140909977/a-new-improved-commuter-bike-for-325-well-sort-of"
+                },
+                { name: "Streetwise",
+                  url: "http://chicagoinno.streetwise.co/2015/03/09/lost-and-found-online-startup-goreturnme-rewards-people-for-returning-items/"
+                },
+                { name: "TruCrowd",
+                  url: "http://blog.trucrowd.com/2014/09/the-city-of-big-startups-a-blog-series-on-chicago-startups/"
+                }
+              ]
+            },
+            { name: "Instagram",
+              url: "https://www.instagram.com/goreturnme/"
+            },
+            { name: "Facebook",
+              url: "https://www.facebook.com/goreturnme/"
+            },
+            { name: "Kickstarter",
+              url: "https://www.kickstarter.com/projects/goreturnme/goreturnme-cloud-based-reward-driven-lost-and-foun/?ref=kicktraq"
+            },
+            { name: "Twitter",
+              url: "https://twitter.com/goreturnme"
+            },
+            { name: "readme.md",
+              path: "/files/goreturnme.readme.md"
+            }
           ]
+        }, 
+        { name: "Tatanka",
+          directory: true,
+          children: [
+            { name: "Documentation", url: "https://tatanka.readme.io/v1.0" },
+            { name: "Github", url: "https://github.com/madchops1/tatanka" },
+            { name: "readme.md", path: "/files/tatanka.readme.md" }
+          ]
+        },
+        { name: "allsites.readme.md",
+          path: "/files/allsites.md"
         }
       ]
     },      
-    {
-      name: "Labs",
+    { name: "Labs",
       directory: true,
       children: [
-        { name: "RobotAndPuppy_Threejs_Lab", executible: true, url: "http://codepen.io/madchops/pen/GWrvWN" },
-        { name: "Botmap.io", executible: true, url: "http://botmap.io" },
-        { name: "Addison_Tickets", executible: true, url: "https://www.facebook.com/addisontickets/" },
-        { name: "Furg_Media", executible: true, url: "https://vimeo.com/user3322509/videos" }
+        { name: "SPA-SitemapGenerator", 
+          directory: true,
+          children: [
+            {
+              name: "BotMap.io",
+              url: "http://botmap.io"
+            },
+            {
+              name: "readme.md",
+              path: "/files/botmap.readme.md"
+            }
+          ]
+        },
+        { name: "AddisonTickets", 
+          directory: true,
+          children: [
+            {
+              name: "AddisonTicketsApp",
+              url: "https://www.facebook.com/addisontickets/" 
+            },
+            {
+              name: "readme.md",
+              path: "/files/at.readme.md"
+            }
+          ]
+        },
+        { name: "FurgMedia", 
+          directory: true,
+          children: [
+            {
+              name: "Vimeo",
+              url: "https://vimeo.com/user3322509/videos"
+            }
+          ]
+        },
+        { name: "RobotAndPuppyLabs",
+          directory: true,
+          children: [
+            {
+              name: "RobotAndPuppyThreejsLab", 
+              url: "http://codepen.io/madchops/pen/GWrvWN" 
+            }
+          ]
+        },
+        { name: "jQueryTour", 
+          directory: true,
+          children: [
+            { name: "Github",
+              url: "https://github.com/madchops1/jquerytour"
+            },
+            { name: "readme.md", 
+              path: "/files/tour.readme.md"
+            }
+          ]
+        }
       ]
     },
-    {
-      name: "resume",
+    { name: "resume",
       directory: false,
-      executible: false,
       url: "https://docs.google.com/document/d/1cz2569FN5G4RYnMY7FaOhcpqbF1E6jhAsrGLL0KPplA/edit?usp=sharing"
     },
-    {
-      name: "Foosball",
+    { name: "Foosball",
       directory: true,
-      executible: false,
       children: [
         {
           name: "meetup",
           url: "https://www.meetup.com/Chicago-Foosball/",
-          executible: true
+        },
+        {
+          name: "readme.md",
+          path: "/files/meetup.readme.md"
         }
       ]
     },
-    {
-      name: "Music",
+    { name: "Music",
       directory: true,
       children: [
-        { name: "bongo_parade", executible: true, url: "https://soundcloud.com/user-948003850" }
+        { name: "bongo_parade", url: "https://soundcloud.com/user-948003850" }
       ]
     },
-    {
-      name: "Photos",
+    { name: "Photo-Video",
       directory: true,
       children: [
         { 
-          name: "Sunrise_Rider", 
-          executible: false,
+          name: "SunriseRider-Photo-Blog", 
           directory: true,
           children: [
-            { name: "Sunrise Rider", executible: true, url: "http://sunriserider.tumblr.com/" },
-            { name: "sunriserider.readme.md", executible: true }
+            { name: "SunriseRider", url: "http://sunriserider.tumblr.com/" },
+            { name: "sunriserider.readme.md" }
+          ]
+        },
+        { name: "Videos",
+          directory: true,
+          children: [
+            {
+
+            }
           ]
         }
       ]
+    },
+    { name: "changelog.md",
+      path: "/files/changelog.md"
+    },
+    { name: "readme.md",
+      path: "/files/about.readme.md"
     }
-
   ];
 
-  this.output = [];
+  //
+  this.output         = [];
+  this.target         = "";
+  this.targetArray    = [];
+  this.current        = [];
 
+  // 
   this.ls = function () { 
-    this.output = []; // clear
+
+    // clear
+    this.output = [];
+    this.target = "";
+    this.targetArray = [];
+
+    if(angular.isArray(input.input)) {
+      this.target = input.input[1].replace(/\/+$/, "");
+      this.targetArray = this.target.split("/");
+    }
+
+    this.current = pwd.current;
+    this.combinedTarget = this.current.concat(this.targetArray);
+
+    this.reverseLoop();
+    this.combinedTargetLength = this.combinedTarget.length;
+
+    //console.log('LS', this.combinedTarget, this.combinedTargetLength);
+
     this.loop(this.directoryStructure, 0);
-    //console.log('ls.ls()', this.output);
     return this.output;
   };
 
-  //
+  this.reverseLoop = function () {
+    var count = 0;
+    for(var i=0; i<this.combinedTarget.length; i++) {
+      if(this.combinedTarget[i] == '..') {
+        this.combinedTarget.splice(i-1,1);
+        this.combinedTarget.splice(i-1,1);
+        i=i-1;
+        i=i-1;
+      }
+    }
+  };  
+
+  // 
   this.loop = function (obj, pathKey) {
-    //console.log('loop', pwd.current.length, pathKey);
+        
     for(var j=0; j<obj.length; j++) {
 
-      // if current length matches the pathKey then we are in the obj we want to return
-      if(pwd.current.length == pathKey ) {
-        //console.log('Aobj' + pathKey, obj[j]);
-        // if this is a dir()
+      //console.log('LS loop', pathKey, j, obj[j].name);
+
+      // name is a match
+      if(pathKey == this.combinedTargetLength) {
+
+
         var output = obj[j].name;
-        // url
+
         if(angular.isDefined(obj[j].url)) {
           output = "<a href='" + obj[j].url + "' target='_blank'>" + obj[j].name + " -> " + obj[j].url.trunc(20) + "</a>";
         } 
-        // directory or file
-        else {
+        // directory
+        else if(obj[j].directory == true) {
           output = "<span class='white'>" + output + "</span>";
+        } 
+        // file
+        else {
+          output = "<span class='khaki'>" + output + "</span>";
+        }
+
+        if(j==0) {
+          this.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='orange'>dr-x </span>.") });
+          this.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='orange'>dr-x </span>..") });
         }
 
         this.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='orange'>" + this.permissionString(obj[j]) + "</span>" + output) });
       } 
-      // match and get children
-      else {
-        //console.log('Bobj' + pathKey, obj[j]);
-        if(obj[j].name == pwd.current[pathKey] && obj[j].children.length > 0) {
-          this.loop(obj[j].children, pathKey+1);
-        }
+      else if(angular.isDefined(obj[j].children) && obj[j].children.length && (this.combinedTarget[pathKey] == obj[j].name)) {
+        this.loop(obj[j].children,pathKey+1);
+        break;
       }
     }
   };
@@ -155,7 +302,8 @@ function ls ($sce, input, pwd) {
       permString = "-" + permString;
     }
 
-    if(item.executible) {
+    //if(item.executible) {
+    if(item.path || item.directory) {
       permString = permString + "x ";
     } else {
       permString = permString + "- ";
@@ -169,12 +317,6 @@ function ls ($sce, input, pwd) {
     
     var subString = this.substr(0, n-1);
     return (useWordBoundary ? subString.substr(0, subString.lastIndexOf(' ')) : subString) + "&hellip;";
-  };
-
-  //
-  this.limitTo = function(str) {
-
-    return str;
   };
 
 }

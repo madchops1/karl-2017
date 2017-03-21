@@ -21,17 +21,8 @@
       return this.router();
     };
 
-    // Command Router
-    // ---------------------------
-    // - about
-    // - clear
-    // - version
-    // - ls
-    // - cd
-    // - pwd
-    // 
     this.router = function () {
-      console.log('router()', this.command);
+      //console.log('router()', this.command);
       switch(this.command) {
         case "help":
           return help();
@@ -54,14 +45,11 @@
           break;
 
         case "cat":
-          //return cat.cat();
-          cat.cat();
-          return true;
+          return cat.cat();
           break;
 
         default: 
           return { pwdString: pwd.current.join("/"), text: $sce.trustAsHtml(this.originalText) };
-          //return [{text: $sce.trustAsHtml(' ')}];
           break;
       }
     }
@@ -72,13 +60,12 @@
         {plain: true, text: $sce.trustAsHtml('<pre> </pre>')},
         {plain: true, text: $sce.trustAsHtml('<pre class="white">  These are some of the commands available to you:</pre>')},
         {plain: true, text: $sce.trustAsHtml('<pre> </pre>')},
-        //{plain: true, text: $sce.trustAsHtml('<pre>  about</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre class="white">  cat [target]       Print text file contents to screen.</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre class="white">  cd [target]        Change to target directory.</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre class="white">  clear              Clear the terminal.</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre class="white">  help               Help for you ;)</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre class="white">  ls                 List current directory contents.</pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre class="white">  pwd                Print current location.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  cat [target]           Print text file contents to screen.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  cd [target]            Change to target directory.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  clear                  Clear the terminal.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  help                   Help for you ;)</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  ls [optional target]   List current directory contents.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  pwd                    Print working directory.</pre>')},
         {plain: true, text: $sce.trustAsHtml('<pre> </pre>')}
       ];
 
@@ -89,10 +76,6 @@
       return "clear";
     }
   }
-
-
-
-
 
 /*
 
@@ -171,7 +154,5 @@
                                      `Ny.    `..:.-s/+hyNdm/hy:moyohNssh//:.`  :ms`                                                                   
                                      +m/yy+-...:-/y/+s+mNNydo:d+yNdyyyyo-``  ``dy.                                                                    
                                     `m+  `/oshhhsdhyddhMmhMNhsNNmdso:.+       sN:                                
-
-
-
+                                    
                                     */                                     

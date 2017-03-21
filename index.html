@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en" ng-app="karl">
 <head>
     <meta charset="utf-8">
@@ -14,11 +13,13 @@
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
+
+    <base href="/">
 </head>
 
 <body ng-controller="karlCtrl as vm">
 
-    <div id="terminal-wrapper" class="sublime-theme" ng-click="vm.focusText()">
+    <div id="terminal-wrapper" class="sublime-theme" ng-click="vm.focusTerminal()">
         <div id="inner">
             <ul>
                 <li ng-repeat="item in vm.output track by $index">
@@ -28,8 +29,9 @@
                     <span ng-bind-html="item.text"></span>
                 </li>
             </ul>
-            <div id="terminal" ng-click="vm.focusText()">
-                <input type="text" id="setter" ng-model="vm.originalText" ng-focus="vm.focus()" ng-blur="vm.blur()" ng-keydown="vm.keydown($event, true)" ng-keyup="vm.keydown($event, false)" ng-keypress="vm.keydown($event, false)" />
+            <div id="terminal" ng-click="vm.focusTerminal()">
+                <input type="text" id="setter" ng-model="vm.originalText" ng-focus="vm.focus()" ng-trim="false" ng-blur="vm.blur()" ng-keydown="vm.keydown($event, true)" ng-keyup="vm.keydown($event, false)" />
+                <input type="text" id="faketab" ng-focus="vm.tabFocus()" ng-blur="" ng-keydown="" ng-keyup="" />
                 <div id="getter">
                     <span class="host">karlsteltenpohl.com:</span>
                     <span class="root">/</span><span class="location">{{vm.pwdString}}</span>
@@ -41,7 +43,7 @@
         </div>
     </div>
 
-    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.2/angular.min.js"></script>
     <script src="js/vendor/sketch.min.js"></script>
     <script src="js/vendor/particle.js"></script>
     <script src="js/services/terminal.service.js"></script>
@@ -51,9 +53,9 @@
     <script src="js/services/ls.service.js"></script>
     <script src="js/services/pwd.service.js"></script>
     <script src="js/services/cd.service.js"></script>
+    <script src="js/services/tab.service.js"></script>
     <script src="js/controllers/karl.controller.js"></script>
     <script src="js/app.js"></script>
-
 </body>
 </html>
 
