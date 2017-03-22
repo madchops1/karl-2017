@@ -1,7 +1,8 @@
-/*
- * Cat function
- * ls, and cd may have some bugs at this time. However this "cat" service is perfect!
- * works recursively down the tree and recursively up the tree
+/**
+ * cat
+ * author Karl Steltenpohl
+ * copyright 2017
+ * UNLICENSED do not reuse
  */
 function cat ($sce, $http, input, output, pwd, ls) {
   
@@ -13,9 +14,7 @@ function cat ($sce, $http, input, output, pwd, ls) {
     this.targetArray = this.target.split("/");
     this.current = pwd.current;
     this.combinedTarget = this.current.concat(this.targetArray);
-
     this.reverseLoop();
-    
     this.loop(ls.directoryStructure,0);
     return true;
   };
@@ -31,12 +30,6 @@ function cat ($sce, $http, input, output, pwd, ls) {
       }
     }
   };
-
-
-  function updateScroll() {
-    var element = document.getElementById("terminal-wrapper");
-    element.scrollTop = element.scrollHeight;
-  }
 
   this.loop = function (obj, pathKey) {
     for(var j=0; j<obj.length; j++) {      
@@ -59,7 +52,6 @@ function cat ($sce, $http, input, output, pwd, ls) {
                 output.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='white'>&nbsp;</span>") });
               });
           } 
-          // no path
           else {
             output.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='pink'>Not a file.</span>") });
           }
@@ -69,10 +61,14 @@ function cat ($sce, $http, input, output, pwd, ls) {
     }    
   };
 
+  function updateScroll() {
+    var element = document.getElementById("terminal-wrapper");
+    element.scrollTop = element.scrollHeight;
+  }
+
   function nl2br(txt){ 
     if(angular.isDefined(txt)) {
       return txt.replace(/\n/g, "<br />");
     }
   }
-
 }

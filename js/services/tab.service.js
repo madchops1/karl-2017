@@ -1,7 +1,12 @@
 /**
- This is still dirty but its awseome
- forward recursive transversal is working
- @todo... backward recursive transversal
+ * tab
+ * author Karl Steltenpohl
+ * copyright 2017
+ * UNLICENSED do not reuse
+ * 
+ * This is still dirty but its awseome
+ * forward recursive transversal is working
+ * @todo... backward recursive transversal
  */
 function tab ($sce, output, pwd, ls) {
 

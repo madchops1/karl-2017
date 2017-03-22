@@ -1,5 +1,18 @@
+/*
+                                _____
+                               | ░ ░ |
+                              _| ░░░ |_
+                      .-.--.-| .     . |-.--.-.
+                      '-'--'-|    -||- |-'--'-'
+                             | .   | . |
+                             |_________| 
+                              |__| |__|
+                              |__| |__|
+                              |__| |__|
+                              |__| |__|
+*/
 
-function karlController ($scope, $http, focus, $sce, terminal, pwd, output, tab, $window, $timeout) {
+function karlController ($scope, $http, focus, $sce, terminal, cd, pwd, ls, output, tab, $window, $timeout) {
  
   console.log('Hi there ;)');
 
@@ -8,7 +21,27 @@ function karlController ($scope, $http, focus, $sce, terminal, pwd, output, tab,
   vm.originalText = '';
   vm.cloneText = '';
   vm.cursorStyle = { left: 0 };
+
   output.output = [
+    //{plain: true, text: $sce.trustAsHtml("<pre>                _____            </pre>")},
+    //{plain: true, text: $sce.trustAsHtml("<pre>               | ░ ░ |           </pre>")},
+    //{plain: true, text: $sce.trustAsHtml("<pre>              _| ░░░ |_          </pre>")},
+    //{plain: true, text: $sce.trustAsHtml("<pre>      .-.--.-| .     . |-.--.-.  </pre>")},
+    //{plain: true, text: $sce.trustAsHtml("<pre>      '-'--'-|    -||- |-'--'-'  </pre>")},
+    //{plain: true, text: $sce.trustAsHtml("<pre>             | .   | . |         </pre>")},
+    //{plain: true, text: $sce.trustAsHtml("<pre>             |_________|         </pre>")},
+    //{plain: true, text: $sce.trustAsHtml("<pre>              |__| |__|          </pre>")},
+    //{plain: true, text: $sce.trustAsHtml("<pre>              |__| |__|          </pre>")},
+    //{plain: true, text: $sce.trustAsHtml("<pre>              |__| |__|          </pre>")},
+    //{plain: true, text: $sce.trustAsHtml("<pre>              |__| |__|          </pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre>   _  __          _    _____ _       _ _                         _     _ </pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre>  | |/ /         | |  / ____| |     | | |                       | |   | |</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre>  | ' / __ _ _ __| | | (___ | |_ ___| | |_ ___ _ __  _ __   ___ | |__ | |</pre>")},
@@ -16,21 +49,24 @@ function karlController ($scope, $http, focus, $sce, terminal, pwd, output, tab,
     {plain: true, text: $sce.trustAsHtml("<pre>  | . \\ (_| | |  | |  ____) | ||  __/ | ||  __/ | | | |_) | (_) | | | | |</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre>  |_|\\_\\__,_|_|  |_| |_____/ \\__\\___|_|\\__\\___|_| |_| .__/ \\___/|_| |_|_|</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre>                                                    | |</pre>")},
-    {plain: true, text: $sce.trustAsHtml("<pre class=''>       Hacker                                       |_|</pre>")},
-    {plain: true, text: $sce.trustAsHtml("<pre class=''>       Semi-Pro Foosball Player")},
-    {plain: true, text: $sce.trustAsHtml("<pre class=''>       Artist</pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre class=''>     Hacker                                         |_|</pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre class=''>     Semi-Pro Foosball Player")},
+    {plain: true, text: $sce.trustAsHtml("<pre class=''>     Daytrader w/ Paper Money</pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre class=''>     Artist</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
-    {plain: true, text: $sce.trustAsHtml("<pre class='pink'>       Type \"help\"...</pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre class='pink'>     Type \"help\"...</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre> </pre>")}
   ];
   vm.location = '';
   vm.pwdString = '';
+  vm.background = cd.defaultBg;
   
   var historyPosition = 0;
   var lastKeyCode = 0;
 
+  // output watcher
   (function () {
       $scope.$watch(function () {
           return output.output;
@@ -39,7 +75,20 @@ function karlController ($scope, $http, focus, $sce, terminal, pwd, output, tab,
       });
   }());
 
+  // Background watcher
+  (function () {
+      $scope.$watch(function () {
+          return output.background;
+      }, function (newVal, oldVal) {
+        console.log('bg watcher', newVal, oldVal);
+        if(newVal != oldVal) {
+          vm.background = newVal;
+        }
+      });
+  }());
+
   vm.focusTerminal = function () {
+
     focus('setter');
   };
 
@@ -50,8 +99,6 @@ function karlController ($scope, $http, focus, $sce, terminal, pwd, output, tab,
 
   vm.tabFocus = function () {
     vm.originalText = tab.tab(vm.originalText);
-
-    // push to end of input 
     $timeout(function() {
       var a = vm.originalText;
       vm.originalText = '';
@@ -60,8 +107,6 @@ function karlController ($scope, $http, focus, $sce, terminal, pwd, output, tab,
         vm.focusTerminal();
       },10); 
     },10);
-
-    
   };
 
   vm.blur = function () {
@@ -126,7 +171,7 @@ function karlController ($scope, $http, focus, $sce, terminal, pwd, output, tab,
     //
     $timeout(function() {
       updateScroll();
-    }, 100);
+    }, 150);
   }
 
   function history(e) {
@@ -248,20 +293,6 @@ function karlController ($scope, $http, focus, $sce, terminal, pwd, output, tab,
         }
     };
 
-    /*demo.mousemove = function() {
-
-        var particle, theta, force, touch, max, i, j, n;
-
-        for ( i = 0, n = demo.touches.length; i < n; i++ ) {
-
-            touch = demo.touches[i], max = random( 1, 4 );
-            for ( j = 0; j < max; j++ ) {
-              demo.spawn( touch.x, touch.y );
-            }
-
-        }
-    };*/
-
     demo.keydown = function() {
 
         var particle, theta, force, touch, max, i, j, n;
@@ -277,6 +308,14 @@ function karlController ($scope, $http, focus, $sce, terminal, pwd, output, tab,
     };
   };
 
+  function setBgState() {
+
+    // loop until you
+    // 
+
+
+  }
+
   function setState () {
     var currentState = $window.history.state;
     var currentHash = $window.location.hash;
@@ -289,6 +328,8 @@ function karlController ($scope, $http, focus, $sce, terminal, pwd, output, tab,
         pwd.current = [pwdString];
       }
       vm.pwdString = pwdString;
+
+      setBgState();
       console.log('currentState', currentState, currentHash, pwdString, vm.pwdString);
     }
   }

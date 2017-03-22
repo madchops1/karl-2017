@@ -22,7 +22,6 @@
     };
 
     this.router = function () {
-      //console.log('router()', this.command);
       switch(this.command) {
         case "help":
           return help();
@@ -49,7 +48,10 @@
           break;
 
         default: 
-          return { pwdString: pwd.current.join("/"), text: $sce.trustAsHtml(this.originalText) };
+          return  [
+                    { pwdString: pwd.current.join("/"), text: $sce.trustAsHtml(this.originalText) },
+                    { plain: true, text: $sce.trustAsHtml('<span class="pink">' + this.command + ': command not found</span>') }
+                  ];
           break;
       }
     }
@@ -60,7 +62,7 @@
         {plain: true, text: $sce.trustAsHtml('<pre> </pre>')},
         {plain: true, text: $sce.trustAsHtml('<pre class="white">  These are some of the commands available to you:</pre>')},
         {plain: true, text: $sce.trustAsHtml('<pre> </pre>')},
-        {plain: true, text: $sce.trustAsHtml('<pre class="white">  cat [target]           Print text file contents to screen.</pre>')},
+        {plain: true, text: $sce.trustAsHtml('<pre class="white">  cat [target]           Print file contents to screen.</pre>')},
         {plain: true, text: $sce.trustAsHtml('<pre class="white">  cd [target]            Change to target directory.</pre>')},
         {plain: true, text: $sce.trustAsHtml('<pre class="white">  clear                  Clear the terminal.</pre>')},
         {plain: true, text: $sce.trustAsHtml('<pre class="white">  help                   Help for you ;)</pre>')},

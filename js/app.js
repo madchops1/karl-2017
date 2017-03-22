@@ -42,6 +42,6 @@
     Controller
    */
   angular.module('karl')
-    .controller("karlCtrl", ["$scope", "$http", "focus", "$sce", "terminal", "pwd", "output", "tab", "$window", "$timeout", karlController]);
+    .controller("karlCtrl", ["$scope", "$http", "focus", "$sce", "terminal", "cd", "pwd", "ls", "output", "tab", "$window", "$timeout", karlController]);
   
 })();

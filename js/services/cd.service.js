@@ -1,8 +1,14 @@
-
+/**
+ * cd
+ * author Karl Steltenpohl
+ * copyright 2017
+ * UNLICENSED do not reuse
+ */
 function cd($sce, input, output, pwd, ls, $window) {
 
   this.target = "";
   this.current = [];
+  this.defaultBg = { 'background-image': 'url(/images/karlboat.jpg)' };
 
   this.cd = function () {
     this.target = input.input[1].replace(/\/+$/, "");
@@ -32,23 +38,24 @@ function cd($sce, input, output, pwd, ls, $window) {
   this.loop = function (obj, pathKey) {
     if(this.combinedTargetLength < 0 || this.combinedTarget[this.combinedTargetLength] == "") { 
       pwd.current = [];
+      output.background = this.defaultBg;
       $window.history.pushState(null, 'Page Title', "/"+pwd.current.join('/'));
       return true; 
     }
     for(var j=0; j<obj.length; j++) {
-     
-      // if the name is a match
       if(pathKey == this.combinedTargetLength && (obj[j].name == this.target || obj[j].name == this.combinedTarget[this.combinedTargetLength])) {
         if(angular.isDefined(obj[j].children)) {
           pwd.current = this.combinedTarget;
           $window.history.pushState(null, 'Page Title', "/"+pwd.current.join('/'));
+          if(angular.isDefined(obj[j].background)) { output.background = { 'background-image' : 'url(' + obj[j].background + ')' }; }
+          else {
+            output.background = this.defaultBg;
+          }
         } else {
           output.output.push({ id: Date.now(), plain: true, text: $sce.trustAsHtml("<span class='pink'>Not a directory.</span>") });
         }
         break;
       } 
-
-      // else if it is not a match but it is a directory that matches this pathKey
       else if(angular.isDefined(obj[j].children) && obj[j].children.length && (this.combinedTarget[pathKey] == obj[j].name)) {
         this.loop(obj[j].children,pathKey+1);
         break;

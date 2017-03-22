@@ -12,14 +12,16 @@ $sublime-green: #8BC42A;
 html, 
 body {
     height: 100%;
+    margin: 0px;
+    padding: 0px 24px;
 }
 
 body {
   background-color: $sublime-bg;
   font-family: monospace;
-  background-image: url(http://karlcdn.s3.amazonaws.com/karlboat.jpg);
-  background-size: cover;
-  background-position: -500px -100px;
+  //background-image: url(http://karlcdn.s3.amazonaws.com/karlboat.jpg);
+  //background-size: cover;
+  //background-position: -500px -100px;
   display: flex;
   align-items: center;
 }
@@ -106,81 +108,196 @@ input#setter, input#faketab { /* explorer doesn't support [att=val] selector :( 
   animation: 1s blink step-end infinite;
 }
 
-#terminal-wrapper {
-  height: 400px;
-  width: 600px;
-  overflow: hidden;
-  padding: 0px;
-  overflow-x: hidden;
-  overflow-y: scroll;
+.page-bg{
+  //background:url('http://www.planwallpaper.com/static/images/general-night-golden-gate-bridge-hd-wallpapers-golden-gate-bridge-wallpaper.jpg');
+  /*-webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);*/
+  -webkit-filter: blur(30px);
+  -moz-filter: blur(30px);
+  -o-filter: blur(30px);
+  -ms-filter: blur(30px);
+  filter: blur(30px);
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:-1;
+  background-position: -500px -100px;
+  //cd opacity: 0.8;  
+  background-size: cover;
+
+  /*
+  -webkit-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
+  -o-transition: all 200ms linear;
+  -ms-transition: all 200ms linear;
+  transition: all 200ms linear;
+  */
+}
+
+#view-wrapper {
   margin: auto;
-  border-radius: 12px;
   box-shadow: 0px 10px 40px -12px #000;
+  border-radius: 12px;
+  position: relative;
+  overflow-x: hidden;
+  height: 80%;
 
-  #inner {
-    padding: 8px 8px 3px 8px;
+  header {
+    height: 200px;      
+    width: 608px;
+    overflow:hidden;    
+    transform: rotate(-175deg);
+    -ms-transform: rotate(-175deg);
+    -webkit-transform: rotate(-175deg);
+    position: absolute;
+    right: -10px;
+    top: -101.5px;
+    //border-top: 1px solid #666;
+    box-shadow: 0px 0px 20px -3px #000;
+    opacity: 0.95;
+
+    div {
+      display:block;
+      width:601px;
+      height:175.5px;
+      transform: rotate(-5deg);
+      transform-origin:0 0;
+      -ms-transform: rotate(-5deg);
+      -ms-transform-origin:0 0;
+      -webkit-transform: rotate(-5deg);
+      -webkit-transform-origin:0 0;
+
+      div {
+        width: 100%;
+        height: 100%;
+        background-size: cover;  
+        background-position: 150px -70px;
+        background-repeat: repeat;
+        border-radius: 0 12px 0 0;
+        
+        transform: rotate(180deg);
+        transform-origin:50% 50%;
+        -ms-transform: rotate(180deg);
+        -ms-transform-origin:50% 50%;
+        -webkit-transform: rotate(180deg);
+        -webkit-transform-origin:50% 50%;
+
+        /*
+        -webkit-transition: all 200ms linear;
+        -moz-transition: all 200ms linear;
+        -o-transition: all 200ms linear;
+        -ms-transition: all 200ms linear;
+        transition: all 200ms linear;
+        */
+      }
+
+    }
+
+    /*//border-bottom: 1px solid #555;
+    background-size: cover;  
+
+    //background-position: -500px -125px;
+    -webkit-transition: all 600ms linear;
+    -moz-transition: all 600ms linear;
+    -o-transition: all 600ms linear;
+    -ms-transition: all 600ms linear;
+    transition: all 600ms linear;
+    margin: 0px auto 24px;
+    position: absolute;
+    top: -50px;
+    left: 37px;
+    box-shadow: 0px 10px 40px -12px #000;*/
+
+
   }
 
-  /**
-   * CLASSIC THEME
-   */
-  &.classic-theme {
-    background-color: #000;
-    color: #39FF14;
+  #terminal-wrapper {
+    height: 100%;
+    width: 600px;
+    overflow: hidden;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-radius: 12px 12px 12px 12px;
     
-    .cursor {
-      background-color: #39FF14;
+
+    #inner {
+      padding: 8px 8px 3px 8px;
+    }
+
+    /**
+     * CLASSIC THEME
+     */
+    &.classic-theme {
+      background-color: #000;
       color: #39FF14;
+      
+      .cursor {
+        background-color: #39FF14;
+        color: #39FF14;
 
-    }
+      }
 
-    a {
-      color: blue;
+      a {
+        color: blue;
 
-      &:hover {
-        color: red;
+        &:hover {
+          color: red;
+        }
       }
     }
-  }
 
-  /**
-   * WHITE THEME
-   */
-  &.white-theme {
-    background-color: #fff;
-    color: #000;
-  }
+    /**
+     * WHITE THEME
+     */
+    &.white-theme {
+      background-color: #fff;
+      color: #000;
+    }
 
-  /**
-   * SUBLIME THEME
-   */
-  &.sublime-theme {
-    background-color: rgba(39,40,34,0.98);
-    color: $sublime-green;
-
-    .cursor {
-      background-color: $sublime-green;
+    /**
+     * SUBLIME THEME
+     */
+    &.sublime-theme {
+      background-color: rgba(39,40,34,0.9);
       color: $sublime-green;
-    }
 
-    pre, span {
-      &.pink { color: $sublime-pink; }
-      &.orange { color: $sublime-orange; }
-      &.purple { color: $sublime-purple; }
-      &.white { color: $sublime-white; }
-      &.khaki { color: $sublime-khaki; }
-    }
+      .cursor {
+        background-color: $sublime-green;
+        color: $sublime-green;
+      }
 
-    a {
-      color: $sublime-blue;
-      text-decoration: underline;
+      pre, span {
+        &.pink { color: $sublime-pink; }
+        &.orange { color: $sublime-orange; }
+        &.purple { color: $sublime-purple; }
+        &.white { color: $sublime-white; }
+        &.khaki { color: $sublime-khaki; }
+      }
 
-      &:hover {
+      a {
         color: $sublime-blue;
-        text-decoration: none;
-        cursor: pointer;
+        text-decoration: underline;
+
+        &:hover {
+          color: $sublime-blue;
+          text-decoration: none;
+          cursor: pointer;
+        }
       }
     }
+  }
+
+  footer {
+    //color: $sublime-orange;
+    //font-family: arial;
+    font-size: 10px;
+    text-align: center;
   }
 }
 
@@ -207,3 +324,16 @@ ul {
         }
     }
 }
+
+/*
+.image-border {
+
+  background-image: url('//fatpony.me/wp-content/uploads/2014/11/mylittleponies-bg-tutorial.jpg');
+  margin: auto;
+  padding: 6px;
+  box-shadow: 0px 10px 40px -12px #000;
+  border-radius: 14px;
+  opacity: 0.9;
+
+}
+*/

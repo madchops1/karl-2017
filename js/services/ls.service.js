@@ -1,20 +1,26 @@
-function ls ($sce, input, pwd) {
+/**
+ * ls
+ * author Karl Steltenpohl
+ * copyright 2017
+ * UNLICENSED do not reuse
+ */
+ function ls ($sce, input, pwd) {
 
   this.directoryStructure = [
-    /*{
-      name: "test.md",
-      executible: true,
-      path: "/files/tatanka.readme.md"
-    },*/
     { name: "Projects",
       directory: true,
+      //background: '/images/karl-beer.jpg',
       children: [
-        {
-          name: "KarlSteltenpohl.com",
+        { name: "KarlSteltenpohl.com",
           directory: true,
+          //background: '/images/karl-disco.jpg',
           children: [
             { name: "Github",
               url: "https://github.com/madchops1/karl-2017"
+            },
+            {
+              name: "readme",
+              path: "/files/about.readme.html"
             }
           ]
         },
@@ -101,13 +107,14 @@ function ls ($sce, input, pwd) {
             { name: "readme", path: "/files/tatanka.readme.html" }
           ]
         },
-        { name: "allsites.readme.html",
+        { name: "allsites.readme",
           path: "/files/allsites.html"
         }
       ]
     },      
     { name: "Labs",
       directory: true,
+      //background: '/images/karl-penny.jpg',
       children: [
         { name: "SPA-SitemapGenerator", 
           directory: true,
@@ -185,6 +192,7 @@ function ls ($sce, input, pwd) {
     },
     { name: "Music",
       directory: true,
+      background: "/images/bongo.jpg",
       children: [
         { name: "bongo_parade", url: "https://soundcloud.com/user-948003850" }
       ]
@@ -197,16 +205,12 @@ function ls ($sce, input, pwd) {
           directory: true,
           children: [
             { name: "SunriseRider", url: "http://sunriserider.tumblr.com/" },
-            //{ name: "sunrise.readme" }
+            { name: "readme", path: "/files/sunriserider.readme.md" }
           ]
         },
         { name: "Videos",
           directory: true,
-          children: [
-            {
-
-            }
-          ]
+          children: [ ]
         }
       ]
     },
@@ -221,33 +225,23 @@ function ls ($sce, input, pwd) {
     }
   ];
 
-  //
   this.output         = [];
   this.target         = "";
   this.targetArray    = [];
   this.current        = [];
 
-  // 
   this.ls = function () { 
-
-    // clear
     this.output = [];
     this.target = "";
     this.targetArray = [];
-
     if(angular.isArray(input.input)) {
       this.target = input.input[1].replace(/\/+$/, "");
       this.targetArray = this.target.split("/");
     }
-
     this.current = pwd.current;
     this.combinedTarget = this.current.concat(this.targetArray);
-
     this.reverseLoop();
     this.combinedTargetLength = this.combinedTarget.length;
-
-    //console.log('LS', this.combinedTarget, this.combinedTargetLength);
-
     this.loop(this.directoryStructure, 0);
     return this.output;
   };
@@ -264,19 +258,11 @@ function ls ($sce, input, pwd) {
     }
   };  
 
-  // 
   this.loop = function (obj, pathKey) {
-        
     for(var j=0; j<obj.length; j++) {
-
-      //console.log('LS loop', pathKey, j, obj[j].name);
-
-      // name is a match
       if(pathKey == this.combinedTargetLength) {
 
-
         var output = obj[j].name;
-
         if(angular.isDefined(obj[j].url)) {
           output = "<a href='" + obj[j].url + "' target='_blank'>" + obj[j].name + " -> " + obj[j].url.trunc(20) + "</a>";
         } 
@@ -303,7 +289,6 @@ function ls ($sce, input, pwd) {
     }
   };
 
-  //
   this.permissionString = function (item) {
 
     var permString = "r-";
@@ -314,7 +299,6 @@ function ls ($sce, input, pwd) {
       permString = "-" + permString;
     }
 
-    //if(item.executible) {
     if(item.path || item.directory) {
       permString = permString + "x ";
     } else {
@@ -326,9 +310,7 @@ function ls ($sce, input, pwd) {
 
   String.prototype.trunc = function( n, useWordBoundary ) {
     if (this.length <= n) { return this; }
-    
     var subString = this.substr(0, n-1);
     return (useWordBoundary ? subString.substr(0, subString.lastIndexOf(' ')) : subString) + "&hellip;";
   };
-
 }

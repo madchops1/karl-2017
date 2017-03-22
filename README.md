@@ -2,4 +2,4 @@
 
 http://karlsteltenpohl.com
 
-A terminal.
+My personal site and a terminal simulator.
