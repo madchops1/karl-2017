@@ -12,10 +12,16 @@ function cd($sce, input, output, pwd, ls, $window) {
 
   this.cd = function () {
     this.target = input.input[1].replace(/\/+$/, "");
+
+    if(this.target.substring(0,1) == '/') {
+      pwd.current = [];
+      this.target = this.target.substring(1,this.target.length);
+    }
+
     this.targetArray = this.target.split("/");
     this.current = pwd.current;
     this.combinedTarget = this.current.concat(this.targetArray);
-
+    
     this.reverseLoop();
     this.combinedTargetLength = this.combinedTarget.length-1;
 

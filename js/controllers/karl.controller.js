@@ -48,8 +48,9 @@ function karlController ($scope, $http, focus, $sce, terminal, cd, pwd, ls, outp
     {plain: true, text: $sce.trustAsHtml("<pre>  |  < / _` | '__| |  \\___ \\| __/ _ \\ | __/ _ \\ '_ \\| '_ \\ / _ \\| '_ \\| |  </pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre>  | . \\ (_| | |  | |  ____) | ||  __/ | ||  __/ | | | |_) | (_) | | | | |</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre>  |_|\\_\\__,_|_|  |_| |_____/ \\__\\___|_|\\__\\___|_| |_| .__/ \\___/|_| |_|_|</pre>")},
-    {plain: true, text: $sce.trustAsHtml("<pre>                                                    | |</pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre>                                                    | |            v1.1.7</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre class=''>     Hacker                                         |_|</pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre class=''>     Sr Frontend @ Oranj</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre class=''>     Semi-Pro Foosball Player")},
     {plain: true, text: $sce.trustAsHtml("<pre class=''>     Daytrader w/ Paper Money</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre class=''>     Artist</pre>")},
@@ -57,7 +58,6 @@ function karlController ($scope, $http, focus, $sce, terminal, cd, pwd, ls, outp
     {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre class='pink'>     Type \"help\"...</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
-    {plain: true, text: $sce.trustAsHtml("<pre> </pre>")}
   ];
   vm.location = '';
   vm.pwdString = '';
@@ -153,7 +153,20 @@ function karlController ($scope, $http, focus, $sce, terminal, cd, pwd, ls, outp
       
       // clear function happens here
       if(response === 'clear') {
-        output.output = [];
+        output.output = [
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")},
+          {plain: true, text: $sce.trustAsHtml("<pre> </pre>")}
+        ];
       }
       // push output onto output
       else if(response.length) {
