@@ -49,7 +49,7 @@
 
         default: 
           return  [
-                    { pwdString: pwd.current.join("/"), text: $sce.trustAsHtml(this.originalText) },
+                    //{ pwdString: pwd.current.join("/"), text: $sce.trustAsHtml(this.originalText) },
                     { plain: true, text: $sce.trustAsHtml('<span class="pink">' + this.command + ': command not found</span>') }
                   ];
           break;

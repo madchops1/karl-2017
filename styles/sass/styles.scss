@@ -19,9 +19,6 @@ body {
 body {
   background-color: $sublime-bg;
   font-family: monospace;
-  //background-image: url(http://karlcdn.s3.amazonaws.com/karlboat.jpg);
-  //background-size: cover;
-  //background-position: -500px -100px;
   display: flex;
   align-items: center;
 }
@@ -109,12 +106,6 @@ input#setter, input#faketab { /* explorer doesn't support [att=val] selector :( 
 }
 
 .page-bg{
-  //background:url('http://www.planwallpaper.com/static/images/general-night-golden-gate-bridge-hd-wallpapers-golden-gate-bridge-wallpaper.jpg');
-  /*-webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);*/
   -webkit-filter: blur(30px);
   -moz-filter: blur(30px);
   -o-filter: blur(30px);
@@ -127,16 +118,7 @@ input#setter, input#faketab { /* explorer doesn't support [att=val] selector :( 
   left:0;
   z-index:-1;
   background-position: -500px -100px;
-  //cd opacity: 0.8;  
   background-size: cover;
-
-  /*
-  -webkit-transition: all 200ms linear;
-  -moz-transition: all 200ms linear;
-  -o-transition: all 200ms linear;
-  -ms-transition: all 200ms linear;
-  transition: all 200ms linear;
-  */
 }
 
 #view-wrapper {
@@ -157,7 +139,6 @@ input#setter, input#faketab { /* explorer doesn't support [att=val] selector :( 
     position: absolute;
     right: -10px;
     top: -101.5px;
-    //border-top: 1px solid #666;
     box-shadow: 0px 0px 20px -3px #000;
     opacity: 0.95;
 
@@ -186,34 +167,8 @@ input#setter, input#faketab { /* explorer doesn't support [att=val] selector :( 
         -ms-transform-origin:50% 50%;
         -webkit-transform: rotate(180deg);
         -webkit-transform-origin:50% 50%;
-
-        /*
-        -webkit-transition: all 200ms linear;
-        -moz-transition: all 200ms linear;
-        -o-transition: all 200ms linear;
-        -ms-transition: all 200ms linear;
-        transition: all 200ms linear;
-        */
       }
-
     }
-
-    /*//border-bottom: 1px solid #555;
-    background-size: cover;  
-
-    //background-position: -500px -125px;
-    -webkit-transition: all 600ms linear;
-    -moz-transition: all 600ms linear;
-    -o-transition: all 600ms linear;
-    -ms-transition: all 600ms linear;
-    transition: all 600ms linear;
-    margin: 0px auto 24px;
-    position: absolute;
-    top: -50px;
-    left: 37px;
-    box-shadow: 0px 10px 40px -12px #000;*/
-
-
   }
 
   #terminal-wrapper {
@@ -294,8 +249,6 @@ input#setter, input#faketab { /* explorer doesn't support [att=val] selector :( 
   }
 
   footer {
-    //color: $sublime-orange;
-    //font-family: arial;
     font-size: 10px;
     text-align: center;
   }
@@ -324,16 +277,3 @@ ul {
         }
     }
 }
-
-/*
-.image-border {
-
-  background-image: url('//fatpony.me/wp-content/uploads/2014/11/mylittleponies-bg-tutorial.jpg');
-  margin: auto;
-  padding: 6px;
-  box-shadow: 0px 10px 40px -12px #000;
-  border-radius: 14px;
-  opacity: 0.9;
-
-}
-*/

@@ -10,12 +10,13 @@
  */
 function tab ($sce, output, pwd, ls) {
 
-    this.text = "";
-    this.output = "";
-    this.input = [];
-    this.target = "";
-    this.targetArray = [];
-    this.current = [];
+    // 
+    this.text           = "";
+    this.output         = "";
+    this.input          = [];
+    this.target         = "";
+    this.targetArray    = [];
+    this.current        = [];
 
     //
     this.tab = function(text) {
@@ -52,11 +53,11 @@ function tab ($sce, output, pwd, ls) {
         }
 
         this.input = text;
-
-
     };
 
-
+    // Reverse loop
+    // If there is ".." in the combinedPathArray then remove it and the entry before it all the way down 
+    // This will give us a 
     this.reverseLoop = function () {
         var count = 0;
         for(var i=0; i<this.combinedTarget.length; i++) {
@@ -67,8 +68,9 @@ function tab ($sce, output, pwd, ls) {
                 i=i-1;
             }
         }
-    };  
+    };
 
+    // 
     this.loop = function (obj, pathKey) {
 
         var count           = 0;
