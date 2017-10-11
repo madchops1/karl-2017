@@ -21,6 +21,8 @@ body {
   font-family: monospace;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -121,8 +123,36 @@ input#setter, input#faketab { /* explorer doesn't support [att=val] selector :( 
   background-size: cover;
 }
 
+#list-wrapper {
+  height: 10%;
+  //margin-top: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+
+  a {
+    //color: #000;
+
+    i {
+      color: $sublime-purple;
+    }
+
+    &:hover {
+      i {
+        color: $sublime-pink;
+      }
+    }
+
+    &:visited {
+      //inherit;
+    }
+  }
+}
+
 #view-wrapper {
-  margin: auto;
+  margin: 0 auto;
   box-shadow: 0px 10px 40px -12px #000;
   border-radius: 12px;
   position: relative;
