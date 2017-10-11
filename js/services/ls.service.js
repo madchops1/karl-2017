@@ -11,6 +11,20 @@
       directory: true,
       //background: '/images/karl-beer.jpg',
       children: [
+        {
+          name: "Dutchess.ai",
+          directory: true,
+          children: [
+            {
+              name: "Dutchess.ai",
+              url: "https://dutchess.ai"
+            },
+            {
+              name: "White Paper",
+              url: "https://s3.amazonaws.com/karlcdn/Dutchess.ai+White+Paper.pdf"
+            }
+          ]
+        },
         { name: "KarlSteltenpohl.com",
           directory: true,
           //background: '/images/karl-disco.jpg',
