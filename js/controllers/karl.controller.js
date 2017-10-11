@@ -21,6 +21,7 @@ function karlController ($scope, $http, focus, $sce, terminal, cd, pwd, ls, outp
   vm.originalText = '';
   vm.cloneText = '';
   vm.cursorStyle = { left: 0 };
+  vm.terminal = true;
 
   output.output = [
     //{plain: true, text: $sce.trustAsHtml("<pre>                _____            </pre>")},
@@ -48,7 +49,7 @@ function karlController ($scope, $http, focus, $sce, terminal, cd, pwd, ls, outp
     {plain: true, text: $sce.trustAsHtml("<pre>  |  < / _` | '__| |  \\___ \\| __/ _ \\ | __/ _ \\ '_ \\| '_ \\ / _ \\| '_ \\| |  </pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre>  | . \\ (_| | |  | |  ____) | ||  __/ | ||  __/ | | | |_) | (_) | | | | |</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre>  |_|\\_\\__,_|_|  |_| |_____/ \\__\\___|_|\\__\\___|_| |_| .__/ \\___/|_| |_|_|</pre>")},
-    {plain: true, text: $sce.trustAsHtml("<pre>                                                    | |            v1.1.7</pre>")},
+    {plain: true, text: $sce.trustAsHtml("<pre>                                                    | |            v1.1.8</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre class=''>     Hacker                                         |_|</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre class=''>     Sr Frontend @ Oranj</pre>")},
     {plain: true, text: $sce.trustAsHtml("<pre class=''>     Semi-Pro Foosball Player")},
@@ -86,6 +87,14 @@ function karlController ($scope, $http, focus, $sce, terminal, cd, pwd, ls, outp
         }
       });
   }());
+
+  vm.terminalToggle = function() {
+    if(vm.terminal == true) {
+      vm.terminal = false;
+    } else {
+      vm.terminal = true;
+    }
+  }
 
   vm.focusTerminal = function () {
 

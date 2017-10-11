@@ -6,6 +6,7 @@
     <meta name="description" content="Karl Steltenpohl">
     <meta name="author" content="Karl Steltenpohl">
     <link rel="stylesheet" href="styles/css/styles.css?v1.0.0">
+    <script src="https://use.fontawesome.com/42464ddce8.js"></script>
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
@@ -13,13 +14,37 @@
 </head>
 <body ng-controller="karlCtrl as vm">
     <div class="page-bg" ng-style="vm.background">&nbsp;</div>
-    <div id="view-wrapper">
+
+    <!--
+    <div class="view-wrapper" ng-if="!vm.terminal">
+        
+        
+        <a href="">Resume</a>
+        <a href="">Github</a>
+        <a href="">Patreon</a>
+        <a href="">Dutchess.ai</a>
+        <a href="">Botmap.io</a>
+        <a href="">Twitter</a>
+        <a ng-click="vm.terminalToggle()" href="">Terminal</a>
+
+        
+
+    </div>
+    -->
+
+
+    <div id="view-wrapper" ng-if="vm.terminal">
         <header>
             <div>
                 <div>
                 </div>
             </div>
         </header>
+        
+        <div id="human-wrapper" class="">
+            blah blah blah I'm human
+        </div>
+        
         <div id="terminal-wrapper" class="sublime-theme" ng-click="vm.focusTerminal()">
             <div id="inner">
                 <ul>

@@ -24,6 +24,22 @@
             }
           ]
         },
+        {
+          name: "Dutchess.ai",
+          directory: true,
+          children: [
+            {
+              name: "Dutchess.ai",
+              directory: false,
+              url: "http://dutchess.ai"
+            },
+            {
+              name: "White Paper",
+              directory: false,
+              url: "https://s3.amazonaws.com/karlcdn/Dutchess.ai+White+Paper.pdf"
+            }
+          ]
+        },
         { name: "GoReturnMe",
           directory: true,
           children: [
@@ -71,10 +87,10 @@
         { name: "RobotAndPuppy",
           directory: true,
           children: [
-            {
-              name: "RobotAndPuppy.com",
-              url: "http://robotandpuppy.com",
-            },
+            //{
+            //  name: "RobotAndPuppy.com",
+            //  url: "http://robotandpuppy.com",
+            //},
             {
               name: "Instagram",
               url: "http://instagram.com/robotandpuppy/",
